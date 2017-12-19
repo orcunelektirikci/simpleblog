@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <main role="main" class="container">
+    <main role="main" class="container col-sm-9">
         <div class="row">
             <div class="col-sm-8 blog-main">
 
@@ -21,18 +21,7 @@
 </div><!-- /.blog-main -->
 </div><!-- /.row -->
 
-<aside class="col-sm-3 ml-sm-auto blog-sidebar">
-    <div class="sidebar-module">
-        <h4>Kategoriler</h4>
-        <ul class="list-unstyled">
 
-            <li><a href="#">Kategori adı</a></li>
-
-        </ul>
-    </div>
-
-</aside><!-- /.blog-sidebar -->
-</main><!-- /.container -->
 
 
 

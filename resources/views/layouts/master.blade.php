@@ -22,6 +22,7 @@
             @endguest
             @auth
             <a class="header-link" href="">Blog Yaz</a>
+            <a class="header-link" href="">Kategori Ekle</a>
 
             {{--<a class="header-link" href="{{route('logout')}}">Çıkış Yap</a>--}}
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Çıkış Yap</a>
@@ -34,7 +35,18 @@
 
                     @yield('content')
 
+<aside class="col-sm-3 ml-sm-auto blog-sidebar">
+    <div class="sidebar-module">
+        <h4>Kategoriler</h4>
+        <ul class="list-unstyled">
 
+            <li><a href="#">Kategori adı</a></li>
+
+        </ul>
+    </div>
+
+</aside><!-- /.blog-sidebar -->
+</main><!-- /.container -->
 
 <footer class="blog-footer">
     <p>2017 Blog Yazılım</p>
