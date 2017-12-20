@@ -19,7 +19,7 @@
 
          {!! Form::open(['method'=>'DELETE', 'action' =>['CategoryController@destroy', $category->id]]) !!}
 
-         {!! Form::submit('Sil', ['class'=>'col-m-6 btn btn-danger pull-right']) !!}
+         {!! Form::submit('Sil', ['id'=>'sil-btn','class'=>'col-m-6 btn btn-danger pull-right']) !!}
 
          {!! Form::close() !!}
 
