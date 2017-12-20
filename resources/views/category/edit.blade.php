@@ -6,14 +6,16 @@
 
     {!! Form::label('category', 'Kategori adı:') !!}
     {!! Form::text('category', null, ['class'=>'form-control']) !!}
-
-
-<br>
-
-
-
-
+    <br>
     {!! Form::submit('Düzenle', ['class'=>'col-m-6 btn btn-success']) !!}
+
+    {!! Form::close() !!}
+
+
+
+
+
+
 
          {!! Form::open(['method'=>'DELETE', 'action' =>['CategoryController@destroy', $category->id]]) !!}
 
@@ -21,7 +23,7 @@
 
          {!! Form::close() !!}
 
-    {!! Form::close() !!}
+
 
 
 @stop

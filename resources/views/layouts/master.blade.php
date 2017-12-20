@@ -36,18 +36,11 @@
 <main role="main" class="container col-sm-9">
     <div class="row">
         <div class="col-sm-9 blog-main">
-
-
                     @yield('content')
-
-        </div><!-- /.blog-main -->
-    </div><!-- /.row -->
-
+        </div>
+    </div>
                     @include('layouts.sidebar')
-</main><!-- /.container -->
-
-
-
+</main>
     <script src="{{asset('js/custom.js')}}"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

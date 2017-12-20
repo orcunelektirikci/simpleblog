@@ -5,12 +5,8 @@
                 <ul class="list-unstyled">
                     @foreach($categories as $category)
                         <li>
-
                             <a href="{{route('category.show',$category->id)}}">{{$category->category}}</a>
-
-
                             <a href="{{route('category.edit',$category->id)}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-
                         </li>
                     @endforeach
                 </ul>
