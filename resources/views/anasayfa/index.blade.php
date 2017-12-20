@@ -9,7 +9,7 @@
                         <h2 class="blog-post-title"><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></h2>
                         <p class="blog-post-meta">{{$post->user->name}}  -  {{ $post->created_at->diffForHumans()}}</p>
                         @if($post->image_path)
-                            <img width="500" src="{{url('images/'.$post->image_path)}}" >
+                            <img width="80%" src="{{url('images/'.$post->image_path)}}" >
 
                         @endif
                     </div><!-- /.blog-post -->

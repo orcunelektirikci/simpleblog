@@ -5,28 +5,32 @@
                 <h2 class="blog-post-title col-sm-12">{{$post->title}}</h2>
 
 @auth
-
+<div class="col-sm-12">
                         {!! Form::open(['method'=>'POST', 'action' =>['LikeController@store']]) !!}
 
                         {{ Form::hidden('post_id', $post->id) }}
 
                         {{--<p><a href="{{route('like.store')}}">Beğen</a></p>--}}
-                        {!! Form::submit('Beğen', ['class'=>'btn btn-info']) !!}
+    <button class='btn btn-default btn btn-link btn-sm col-sm-3 pull-left' type='submit' value='submit'>
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Beğen
+    </button>
+                        {{--{!! Form::submit('Beğen', ['class'=>'btn btn-info btn-sm col-sm-3 pull-left']) !!}--}}
 
                         {!! Form::close() !!}
 
 @if($post->likes)
-                        <p class="col-sm-6">{{$post->likes->count()}} Beğeni </p>
+                        <p class="col-sm-9 pull-left">{{$post->likes->count()}} Beğeni </p>
     @else
-                            <p class="col-sm-6">0 Beğeni </p>
+                            <p class="col-sm-9">0 Beğeni </p>
     @endif
-
+</div>
 
 
 @endauth
-                <p class="blog-post-meta">{{$post->user->name}}  -  {{ $post->created_at->diffForHumans()}}</p>
+                    <br>
+                <p class="blog-post-meta col-sm-12">{{$post->user->name}}  -  {{ $post->created_at->diffForHumans()}}</p>
 @if($post->image_path)
-                <img width="500" src="{{url('images/'.$post->image_path)}}" >
+                <img width="80%" src="{{url('images/'.$post->image_path)}}" >
 
 @endif
                     <br>
@@ -34,30 +38,41 @@
             </div><!-- /.blog-post -->
             @if(Auth::user()==$post->user)
             <hr>
-            <a class="btn btn-success col-sm-3 pull-left" href="{{route('posts.edit',$post->id)}}">Gönderiyi Düzenle</a>
+             <a class="btn btn-default btn-sm col-sm-3 pull-left" href="{{route('posts.edit',$post->id)}}"><i class="fa fa-text-width" aria-hidden="true"></i>   Gönderiyi Düzenle</a>
+
             {!! Form::open(['method'=>'DELETE', 'action' =>['PostController@destroy', $post->id]]) !!}
 
-            {!! Form::submit('Gönderiyi Sil', ['class'=>'col-sm-3 btn btn-danger btn-btmm pull-left']) !!}
+            <button class='col-sm-3 btn btn-sm btn-danger btn-btmm pull-left' type='submit' value='submit'>
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Gönderiyi Sil
+            </button>
+
+            {{--{!! Form::submit('Gönderiyi Sil', ['class'=>'col-sm-3 btn btn-sm btn-danger btn-btmm pull-left']) !!}--}}
 
             {!! Form::close() !!}
             @endif
-    <hr>
+<br>
             @auth
             {!! Form::open(['method'=>'POST', 'action' =>['CommentController@store']]) !!}
 
             {{ Form::hidden('post_id', $post->id) }}
 
-            {!! Form::button('Yorum Yap', ['onclick'=>'showComment()', 'class'=>'col-sm-3 btn btn-sm btn-btmm pull-right']) !!}
+            <button onclick="showComment()" class='col-sm-3 btn btn-sm btn-btmm pull-right' type="button">
+                <i class="fa fa-comment-o" aria-hidden="true"></i> Yorum Yap
+            </button>
+            {{--{!! Form::button('Yorum Yap', ['onclick'=>'showComment()', 'class'=>'col-sm-3 btn btn-sm btn-btmm pull-right']) !!}--}}
     <br>
             {!! Form::textarea('body', null, ['rows'=>'3', 'class'=>'form-control yorum']) !!}
 
-            {!! Form::submit('Gönder', ['class'=>'col-sm-3 btn pull-right gndr-btn']) !!}
+
+
+            {!! Form::submit('Gönder', ['class'=>'col-sm-3 btn btn-sm pull-right gndr-btn']) !!}
 
             {!! Form::close() !!}
             @endauth
             @if($post->comments)
-            <div class="col-m-5 btn-btmm">
-              <h4>Yorumlar</h4>
+            <div class="btn-btmm">
+                <br>
+              <h4 id="yorum-baslik" class="col-lg-12 col-lg-offset-12">Yorumlar</h4>
 
 
                  @foreach($post->comments as $comment)
@@ -69,26 +84,30 @@
                     @auth
                         {!! Form::open(['method'=>'POST', 'action' =>['LikeController@store']]) !!}
 
-                        {{ Form::hidden('comment_id', $comment->id) }}
+                            {{ Form::hidden('comment_id', $comment->id) }}
+                        <div class="col-sm-6">
+                            {{--<p><a href="{{route('like.store')}}">Beğen</a></p>--}}
 
-                        {{--<p><a href="{{route('like.store')}}">Beğen</a></p>--}}
-                        {!! Form::submit('Beğen', ['class'=>'btn btn-info']) !!}
+                            <button class='btn btn-default btn btn-link btn-sm col-sm-3 pull-left' type='submit' value='submit'>
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Beğen
+                            </button>
+                            {{--{!! Form::submit('Beğen', ['class'=>'btn btn-sm col-sm-4 btn-info pull-left']) !!}--}}
                             @if($comment->likes)
-                                <p class="col-sm-6">{{$comment->likes->count()}} Beğeni </p>
+                                <p class="col-sm-8 pull-right">{{$comment->likes->count()}} Beğeni </p>
                             @else
-                                <p class="col-sm-6">0 Beğeni </p>
+                                <p class="col-sm-8 pull-right">0 Beğeni </p>
                             @endif
 
-                        {!! Form::close() !!}
-
-
-
+                            {!! Form::close() !!}
+                        </div>
                     @endauth
-                </div>
-
+                        <br>
+                    </div>
+                     <hr>
               @endforeach
 
-    </div>
+
+              </div>
 
             @endif
 

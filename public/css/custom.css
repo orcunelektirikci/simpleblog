@@ -193,6 +193,13 @@ h6,
 
 #yorumid{
 
-    border-bottom: #2a88bd solid 1px;
     padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+#yorum-baslik{
+    position: relative;
+    left:0;
+    margin-left:0;
+    padding-left:0;
+    top: 10px;
 }
