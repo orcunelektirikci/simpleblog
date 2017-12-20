@@ -12,8 +12,13 @@
 */
 
 
+use App\Category;
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::resource('posts','PostController');
+Route::resource('category','CategoryController');
+Route::resource('comment','CommentController');
+Route::resource('like','LikeController');

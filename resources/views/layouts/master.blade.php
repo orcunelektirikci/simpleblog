@@ -16,13 +16,14 @@
     <div class="blog-header">
         <div class="container container-fluid">
             <h1 class="blog-title">Blog Sayfası</h1>
+            <a class="header-link" href="/">Anasayfa</a>
             @guest
             <a class="header-link" href="{{route('login')}}">Giriş Yap</a>
             <a class="header-link" href="{{route('register')}}">Üye Ol</a>
             @endguest
             @auth
-            <a class="header-link" href="">Blog Yaz</a>
-            <a class="header-link" href="">Kategori Ekle</a>
+            <a class="header-link" href="{{route('posts.create')}}">Blog Yaz</a>
+            <a class="header-link" href="{{route('category.create')}}">Kategori Ekle</a>
 
             {{--<a class="header-link" href="{{route('logout')}}">Çıkış Yap</a>--}}
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Çıkış Yap</a>
@@ -31,26 +32,22 @@
         </div>
     </div>
 </header>
+<main role="main" class="container col-sm-9">
+    <div class="row">
+        <div class="col-sm-8 blog-main">
 
 
                     @yield('content')
 
-<aside class="col-sm-3 ml-sm-auto blog-sidebar">
-    <div class="sidebar-module">
-        <h4>Kategoriler</h4>
-        <ul class="list-unstyled">
+        </div><!-- /.blog-main -->
+    </div><!-- /.row -->
 
-            <li><a href="#">Kategori adı</a></li>
-
-        </ul>
-    </div>
-
-</aside><!-- /.blog-sidebar -->
+                    @include('layouts.sidebar')
 </main><!-- /.container -->
 
-<footer class="blog-footer">
-    <p>2017 Blog Yazılım</p>
-</footer>
+
+
+    <script src="{{asset('js/custom.js')}}"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

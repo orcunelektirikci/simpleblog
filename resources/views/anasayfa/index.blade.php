@@ -2,28 +2,26 @@
 
 
 @section('content')
-    <main role="main" class="container col-sm-9">
-        <div class="row">
-            <div class="col-sm-8 blog-main">
 
-<div class="blog-post">
-    <h2 class="blog-post-title">Gönderi Başlığı</h2>
-    <p class="blog-post-meta"><a href="#">Kullanıcı</a></p>
-    <p><img src=""></p>
-    <hr>
-    <p>Gönderi metni</p>
-</div><!-- /.blog-post -->
-<nav class="blog-pagination">
-    <a class="btn btn-outline-primary" href="#">Older</a>
-    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-</nav>
+                @if($posts)
+                    @foreach($posts as $post)
+                    <div class="blog-post">
+                        <h2 class="blog-post-title"><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></h2>
+                        <p class="blog-post-meta">{{$post->user->name}}  -  {{ $post->created_at->diffForHumans()}}</p>
+                        @if($post->image_path)
+                            <img width="500" src="{{url('images/'.$post->image_path)}}" >
 
-</div><!-- /.blog-main -->
-</div><!-- /.row -->
+                        @endif
+                    </div><!-- /.blog-post -->
+                        <hr>
+                    @endforeach
 
-
-
-
+                    {{$posts->links()}}
+                @endif
+{{--<nav class="blog-pagination">--}}
+    {{--<a class="btn btn-outline-primary" href="#">Older</a>--}}
+    {{--<a class="btn btn-outline-secondary disabled" href="#">Newer</a>--}}
+{{--</nav>--}}
 
 
 @endsection

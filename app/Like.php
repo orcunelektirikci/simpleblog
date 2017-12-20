@@ -16,4 +16,6 @@ class Like extends Model
     public function post(){
         return $this->morphTo('App\Post','likeable');
     }
+
+
 }
