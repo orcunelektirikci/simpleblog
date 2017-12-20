@@ -52,6 +52,10 @@ class CategoryController extends Controller
     {
         //
 
+        $category = Category::find($id);
+        $posts = $category->posts()->orderBy('id','desc')->paginate(6);
+        return view('anasayfa.index',['posts'=>$posts]);
+
     }
 
     /**

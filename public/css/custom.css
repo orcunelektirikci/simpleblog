@@ -79,25 +79,20 @@ h6,
 }
 
 
-/*
- * Blog name and description
- */
-
 .blog-header {
-    padding-bottom: 1.25rem;
-    margin-bottom: 2rem;
-    border-bottom: .05rem solid #eee;
-    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    padding-top: 20px;
     background-color:#c4e3f3;
     height:10%;
 }
 .blog-title {
     margin-bottom: 0;
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 400;
 }
 .blog-description {
-    font-size: 1.1rem;
+    font-size: 18px;
     color: #999;
 }
 
@@ -202,4 +197,12 @@ h6,
     margin-left:0;
     padding-left:0;
     top: 10px;
+}
+
+.photo-in{
+    margin-bottom:20px;
+}
+
+.photo{
+    margin-bottom: 0;
 }

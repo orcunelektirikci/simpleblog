@@ -8,7 +8,7 @@
     {!! Form::text('category', null, ['class'=>'form-control']) !!}
 
 
-    <br>
+<br>
 
 
 

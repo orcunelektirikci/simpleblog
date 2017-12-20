@@ -30,7 +30,7 @@
                     <br>
                 <p class="blog-post-meta col-sm-12">{{$post->user->name}}  -  {{ $post->created_at->diffForHumans()}}</p>
 @if($post->image_path)
-                <img width="80%" src="{{url('images/'.$post->image_path)}}" >
+                <img class="photo-in" width="65%" src="{{url('images/'.$post->image_path)}}" >
 
 @endif
                     <br>
@@ -73,6 +73,7 @@
             <div class="btn-btmm">
                 <br>
               <h4 id="yorum-baslik" class="col-lg-12 col-lg-offset-12">Yorumlar</h4>
+                <hr>
 
 
                  @foreach($post->comments as $comment)
